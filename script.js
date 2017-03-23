@@ -31,28 +31,38 @@ function appFn(contactList) {
     const letters = document.getElementsByClassName('letter');
     let closerLi = null;
     let movingLi = null;
-    let distance=0;
-    window.onscroll = function() {
+    let distance = 0;
+    window.onscroll = function () {
         closerLi = null;
         movingLi = null;
-        for (let i=0;i<letters.length;i++) {
+        for (let i = 0; i < letters.length; i++) {
             const li = letters[i].parentNode;
-           distance=li.nextSibling.offsetTop - 45;
-                if (distance < window.pageYOffset) {
-                    closerLi = li
-                }
-                else if (distance-45 < window.pageYOffset) {
-                    movingLi = li
-                }
-                li.style.position = 'static';
+           
+            distance = li.nextSibling.offsetTop - 45;
+            
+            if (distance < window.pageYOffset) {
+                closerLi = li;
+                continue;
+             
+            }
+            else if (distance < window.pageYOffset+45) {
+                movingLi = li;
+
+            }
+            li.nextSibling.style.marginTop = '0px'
+            li.style.top='0px'
+            li.style.position = 'static';
         }
         if (movingLi && closerLi) {
             closerLi.style.position = 'relative';
-            closerLi.style.top = (movingLi.offsetTop - closerLi.nextSibling.offsetTop)+'px';
+              closerLi.style.zIndex = '1';
+            closerLi.style.top = (movingLi.offsetTop - closerLi.nextSibling.offsetTop ) + 'px';
+            closerLi.nextSibling.style.marginTop = '0px';
         }
         else if (closerLi) {
-            closerLi.style.position = 'relative';
-            closerLi.style.top = (window.pageYOffset - closerLi.nextSibling.offsetTop + 45)+'px';
+            closerLi.style.position = 'fixed';
+            closerLi.style.top = 0 + 'px';
+            closerLi.nextSibling.style.marginTop = '45px';
         }
     }
 }

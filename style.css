@@ -57,7 +57,7 @@ padding-top:10px;
 justify-content: flex-start;
 height: 45px;
 width: 200px;
-border-bottom: 1px solid #aaa;
+border-bottom: 1px solid #ddd;
 background-color:white;
 margin:0;
 }
@@ -81,6 +81,7 @@ margin:0;
   border:0;
   width: 20px;
    cursor:default;
+   background-color:transparent;
 }
 *{
   box-sizing: border-box;

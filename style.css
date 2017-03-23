@@ -48,7 +48,8 @@ body{
     justify-content: center;
     overflow: hidden;
     padding:0;
-    margin:0;
+    margin:0 auto;
+    width:200px;
 }
 #list li{
 display: flex;
@@ -63,7 +64,24 @@ margin:0;
 #list .letter{
     font-weight: bold;
 }
-
+#list .anchors{
+  font-size:1rem;
+  font-weight: bold;
+  color:#137acb;
+  padding:0;
+  margin:0;
+  position:fixed;
+  top:10%;
+  left: calc(50% + 50px);
+  height: 80vh;
+}
+#list .anchors li{
+   padding:0;
+  margin:0;
+  border:0;
+  width: 20px;
+   cursor:default;
+}
 *{
   box-sizing: border-box;
 }
